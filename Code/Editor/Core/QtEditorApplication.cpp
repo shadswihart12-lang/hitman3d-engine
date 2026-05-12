@@ -229,7 +229,7 @@ namespace Editor
         setWindowIcon(QIcon(":/Application/res/o3de_editor.ico"));
 
         // set the default key store for our preferences:
-        setApplicationName("O3DE Editor");
+        setApplicationName("Hitman 3d by jss");
 
         installEventFilter(this);
 

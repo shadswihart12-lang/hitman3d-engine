@@ -670,12 +670,12 @@ bool ApplicationManager::Activate()
 
 QString ApplicationManager::GetOrganizationName() const
 {
-    return "O3DE";
+    return "Jeffrsin Str33t Studios";
 }
 
 QString ApplicationManager::GetApplicationName() const
 {
-    return "O3DE Asset Processor";
+    return "Hitman 3d Asset Processor";
 }
 
 bool ApplicationManager::PostActivate()
