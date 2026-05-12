@@ -1,0 +1,11 @@
+{
+    "engine_name": "Hitman 3d by jss",
+    "engine_short": "hitman3d",
+    "engine_version": "0.1.0-hitman3d",
+    "studio": "Jeffrsin Str33t Studios",
+    "studio_lead": "Shad (Creative Director)",
+    "license": "Apache 2.0 / MIT (inherited from O3DE base)",
+    "fork_origin": "https://github.com/o3de/o3de",
+    "fork_strategy": "maintained \u2014 periodic upstream sync, custom layer in Gems/Hitman3D",
+    "branded_at": "2026-05-12T01:46:09.551771Z"
+}

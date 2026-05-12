@@ -26,3 +26,8 @@ _savebackup/
 CrashDB/
 *.DotSettings.user
 imgui.ini
+
+# Hitman 3d by jss — studio additions
+/build_local/
+/branding_workspace/
+*.studio_temp

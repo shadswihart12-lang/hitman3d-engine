@@ -1,0 +1,27 @@
+{
+    "gem_name": "Hitman3D_AssetHub",
+    "display_name": "Hitman 3d — Asset Hub",
+    "license": "Proprietary — Jeffrsin Str33t Studios",
+    "license_url": "",
+    "origin": "Jeffrsin Str33t Studios",
+    "origin_url": "https://github.com/shadswihart12-lang/hitman3d-engine",
+    "type": "Code",
+    "summary": "One-click asset import from Sketchfab, Quixel Megascans, OpenGameArt, and (pending Epic approval) Fab.",
+    "canonical_tags": ["Gem", "Editor", "AssetPipeline"],
+    "user_tags": ["Hitman3D", "Marketplace", "AssetHub"],
+    "icon_path": "preview.png",
+    "requirements": "",
+    "documentation_url": "",
+    "dependencies": [
+        "Atom",
+        "HttpRequestor"
+    ],
+    "version": "0.1.0",
+    "compatible_engines": [
+        "hitman3d==0.1.0-hitman3d",
+        "o3de>=23.10"
+    ],
+    "engine_api_dependencies": [
+        "framework==1.0"
+    ]
+}

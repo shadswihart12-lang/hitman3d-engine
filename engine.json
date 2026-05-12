@@ -1,8 +1,8 @@
 {
-    "engine_name": "o3de",
+    "engine_name": "hitman3d",
     "O3DEVersion": "0.1.0.0",
     "O3DEBuildNumber": 0,
-    "display_version": "00.00",
+    "display_version": "0.1.0-hitman3d",
     "version": "4.2.0",
     "api_versions": {
         "editor": "1.0.0",
@@ -131,5 +131,11 @@
     ],
     "repos": [
         "https://canonical.o3de.org"
-    ]
+    ],
+    "hitman3d_branding": {
+        "display_name": "Hitman 3d by jss",
+        "studio": "Jeffrsin Str33t Studios",
+        "based_on": "O3DE 0.1.0.0",
+        "branded_at": "2026-05-12T01:46:09.551771Z"
+    }
 }

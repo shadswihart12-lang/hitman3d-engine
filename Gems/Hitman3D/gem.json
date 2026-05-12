@@ -1,0 +1,17 @@
+{
+    "gem_name": "Hitman3D",
+    "display_name": "Hitman 3d by jss \u2014 Studio Systems",
+    "version": "0.1.0-hitman3d",
+    "license": "Proprietary \u2014 Jeffrsin Str33t Studios",
+    "origin": "Jeffrsin Str33t Studios",
+    "type": "Code",
+    "summary": "Custom studio systems layered on top of O3DE base.",
+    "canonical_tags": [
+        "Studio",
+        "Custom"
+    ],
+    "user_tags": [
+        "Hitman3D",
+        "JSS"
+    ]
+}
