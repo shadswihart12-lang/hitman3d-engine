@@ -3,14 +3,14 @@ REM Double-click from Desktop shortcut — opens Project Manager for Hitman3DStu
 setlocal
 set "ENGINE_ROOT=%~dp0"
 for %%I in ("%ENGINE_ROOT%") do set "ENGINE_ROOT=%%~fI"
-set "PROJECT_PATH=%ENGINE_ROOT%..\projects\Hitman3DStudio"
+set "PROJECT_PATH=%ENGINE_ROOT%\..\projects\Hitman3DStudio"
 for %%I in ("%PROJECT_PATH%") do set "PROJECT_PATH=%%~fI"
 
 title Hitman 3d by jss
 
-set "PM=%ENGINE_ROOT%build\windows\bin\profile\Editor\O3DEProjectManager.exe"
+set "PM=%ENGINE_ROOT%\build\windows\bin\profile\Editor\O3DEProjectManager.exe"
 if exist "%PM%" goto launch_pm
-set "PM=%ENGINE_ROOT%build\bin\profile\Editor\O3DEProjectManager.exe"
+set "PM=%ENGINE_ROOT%\build\bin\profile\Editor\O3DEProjectManager.exe"
 if exist "%PM%" goto launch_pm
 
 REM Fall back: common O3DE installer locations

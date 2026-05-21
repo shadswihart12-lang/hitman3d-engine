@@ -3,7 +3,7 @@ REM Moves Hitman 3d shortcut from OneDrive Desktop to local Desktop only.
 setlocal
 set "ENGINE_ROOT=%~dp0..\.."
 for %%I in ("%ENGINE_ROOT%") do set "ENGINE_ROOT=%%~fI"
-set "LAUNCHER=%ENGINE_ROOT%LAUNCH_HITMAN3D_STUDIO.bat"
+set "LAUNCHER=%ENGINE_ROOT%\LAUNCH_HITMAN3D_STUDIO.bat"
 
 title Move shortcut off OneDrive
 

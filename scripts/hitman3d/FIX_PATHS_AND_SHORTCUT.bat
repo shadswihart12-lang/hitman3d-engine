@@ -8,9 +8,9 @@ title Hitman 3d - Fix Paths and Shortcut
 
 set "ENGINE_ROOT=%~dp0..\.."
 for %%I in ("%ENGINE_ROOT%") do set "ENGINE_ROOT=%%~fI"
-set "PROJECT_PATH=%ENGINE_ROOT%..\projects\Hitman3DStudio"
+set "PROJECT_PATH=%ENGINE_ROOT%\..\projects\Hitman3DStudio"
 for %%I in ("%PROJECT_PATH%") do set "PROJECT_PATH=%%~fI"
-set "O3DE_BAT=%ENGINE_ROOT%scripts\o3de.bat"
+set "O3DE_BAT=%ENGINE_ROOT%\scripts\o3de.bat"
 
 echo.
 echo  ============================================================
@@ -56,7 +56,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0audit_shortcuts.ps1" -
 
 echo.
 echo  -------- Step 5: Wire your desktop shortcut --------
-set "LAUNCHER=%ENGINE_ROOT%LAUNCH_HITMAN3D_STUDIO.bat"
+set "LAUNCHER=%ENGINE_ROOT%\LAUNCH_HITMAN3D_STUDIO.bat"
 if not exist "%LAUNCHER%" (
     echo ERROR: Missing %LAUNCHER%
     pause
