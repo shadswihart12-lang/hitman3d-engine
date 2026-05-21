@@ -55,7 +55,7 @@ echo  -------- Step 4: Desktop shortcuts (audit) --------
 powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0audit_shortcuts.ps1" -EngineRoot "%ENGINE_ROOT%"
 
 echo.
-echo  -------- Step 5: Create fresh desktop shortcut --------
+echo  -------- Step 5: Wire your desktop shortcut --------
 set "LAUNCHER=%ENGINE_ROOT%LAUNCH_HITMAN3D_STUDIO.bat"
 if not exist "%LAUNCHER%" (
     echo ERROR: Missing %LAUNCHER%
@@ -63,16 +63,10 @@ if not exist "%LAUNCHER%" (
     exit /b 1
 )
 
-powershell -NoProfile -ExecutionPolicy Bypass -Command ^
-  "$s = (New-Object -ComObject WScript.Shell).CreateShortcut([Environment]::GetFolderPath('Desktop') + '\Hitman 3d Studio.lnk');" ^
-  "$s.TargetPath = '%LAUNCHER%';" ^
-  "$s.WorkingDirectory = '%ENGINE_ROOT%';" ^
-  "$s.Description = 'Hitman 3d by jss - Jeffrsin Str33t Studios';" ^
-  "$s.Save();" ^
-  "Write-Host 'Created: Desktop\Hitman 3d Studio.lnk' -ForegroundColor Green"
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0repair_shortcut.ps1" -LauncherPath "%LAUNCHER%" -EngineRoot "%ENGINE_ROOT%"
 
 echo.
-echo  Done. Use the NEW desktop shortcut: Hitman 3d Studio
-echo  You can delete old Hitman3d shortcuts that point to C:\Hitman3D\engine
+echo  Done. Double-click: Hitman 3d by jss  ^(on your desktop^)
+echo  It should run: %LAUNCHER%
 echo.
 pause
