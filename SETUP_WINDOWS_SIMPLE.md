@@ -31,6 +31,18 @@ https://cmake.org/download/ — “Add to PATH” if the installer asks.
 
 ---
 
+## Desktop shortcut (not OneDrive)
+
+Your engine lives at `C:\Hitman3D-new\` — **outside** OneDrive (good).
+
+To move the shortcut off OneDrive Desktop, double-click:
+
+`scripts\hitman3d\MOVE_OFF_ONEDRIVE.bat`
+
+That puts **Hitman 3d by jss** on `C:\Users\<you>\Desktop` and removes the OneDrive copy.
+
+---
+
 ## The only file to double-click (after VS is installed)
 
 In File Explorer open your engine folder:
