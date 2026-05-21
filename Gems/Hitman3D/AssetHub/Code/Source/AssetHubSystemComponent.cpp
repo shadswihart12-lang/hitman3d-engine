@@ -47,9 +47,8 @@ namespace Hitman3D::AssetHub
     {
         incompatible.push_back(AZ_CRC_CE("Hitman3DAssetHubService"));
     }
-    void AssetHubSystemComponent::GetRequiredServices(AZ::ComponentDescriptor::DependencyArrayType& required)
+    void AssetHubSystemComponent::GetRequiredServices(AZ::ComponentDescriptor::DependencyArrayType& /*required*/)
     {
-        required.push_back(AZ_CRC_CE("HttpRequestorService"));
     }
 
     void AssetHubSystemComponent::Init()

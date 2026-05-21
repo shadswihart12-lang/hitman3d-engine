@@ -4,9 +4,11 @@
 Forked from [O3DE](https://github.com/o3de/o3de) under Apache 2.0 / MIT.
 
 ## Branches
-- `main` — clean mirror of upstream o3de/o3de
-- `hitman3d/main` — production engine release line
-- `hitman3d/dev` — active development
+- `development` — active line (branding + Hitman3D gems + upstream O3DE)
+- `hitman3d/main` — release tag line (sync with `development` periodically)
+- `hitman3d/dev` — **stale**; rebase onto `development` before use
+
+See [docs/HITMAN3D_STATUS.md](docs/HITMAN3D_STATUS.md) for audit notes and known gaps.
 
 ## Repo Layout
 ```

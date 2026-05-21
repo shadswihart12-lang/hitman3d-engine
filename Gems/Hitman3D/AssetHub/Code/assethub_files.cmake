@@ -18,6 +18,10 @@ set(FILES
     Source/Pipeline/AssetImporter.h
     Source/Pipeline/AssetImporter.cpp
 
+    Source/Http/AssetHubHttpClient.cpp
+    Include/Hitman3D/AssetHub/AssetHubHttpClient.h
+    Include/Hitman3D/AssetHub/AssetHubHttpTypes.h
+
     Source/Auth/CredentialStore.h
     Source/Auth/CredentialStore_Windows.cpp
 )

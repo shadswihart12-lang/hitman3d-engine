@@ -44,12 +44,32 @@ namespace Hitman3D::AssetHub
 
 #else
 
-// Non-Windows stub — to be replaced with Keychain / libsecret backends.
+#include <AzCore/Settings/SettingsRegistry.h>
+
 namespace Hitman3D::AssetHub
 {
-    bool CredentialStore::Set(const AZStd::string&, const AZStd::string&)   { return false; }
-    bool CredentialStore::Get(const AZStd::string&, AZStd::string&)         { return false; }
-    bool CredentialStore::Clear(const AZStd::string&)                       { return true;  }
+    namespace
+    {
+        AZStd::string SettingsKey(const AZStd::string& key)
+        {
+            return AZStd::string("/Hitman3D/AssetHub/Credentials/") + key;
+        }
+    }
+
+    bool CredentialStore::Set(const AZStd::string& key, const AZStd::string& value)
+    {
+        return AZ::SettingsRegistry::Get() && AZ::SettingsRegistry::Get()->Set(SettingsKey(key), value);
+    }
+
+    bool CredentialStore::Get(const AZStd::string& key, AZStd::string& outValue)
+    {
+        return AZ::SettingsRegistry::Get() && AZ::SettingsRegistry::Get()->Get(outValue, SettingsKey(key));
+    }
+
+    bool CredentialStore::Clear(const AZStd::string& key)
+    {
+        return AZ::SettingsRegistry::Get() && AZ::SettingsRegistry::Get()->Remove(SettingsKey(key));
+    }
 }
 
 #endif

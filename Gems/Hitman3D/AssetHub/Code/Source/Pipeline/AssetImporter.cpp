@@ -15,8 +15,7 @@
 #include <AzCore/StringFunc/StringFunc.h>
 #include <AzCore/Settings/SettingsRegistry.h>
 
-#include <HttpRequestor/HttpRequestorBus.h>
-#include <HttpRequestor/HttpTypes.h>
+#include <Hitman3D/AssetHub/AssetHubHttpClient.h>
 
 namespace Hitman3D::AssetHub
 {
@@ -132,25 +131,14 @@ namespace Hitman3D::AssetHub
             return true;
         }
 
-        // Synchronous download via HttpRequestor. For large files we should stream-to-file
-        // instead — production fix.
         AZStd::string body;
-        Aws::Http::HttpResponseCode code = Aws::Http::HttpResponseCode::REQUEST_NOT_MADE;
+        HttpResponseCode code = HttpResponseCode::RequestNotMade;
+        if (!AssetHubHttpClient::GetBlocking(urlOrPath, {}, body, code, outError))
+        {
+            return false;
+        }
 
-        AZStd::binary_semaphore done;
-        HttpRequestor::HttpRequestorRequestBus::Broadcast(
-            &HttpRequestor::HttpRequestorRequests::AddRequest,
-            urlOrPath,
-            Aws::Http::HttpMethod::HTTP_GET,
-            [&](const AZStd::string& response, Aws::Http::HttpResponseCode responseCode)
-            {
-                body = response;
-                code = responseCode;
-                done.release();
-            });
-        done.acquire();
-
-        if (code != Aws::Http::HttpResponseCode::OK)
+        if (code != HttpResponseCode::Ok)
         {
             outError = AZStd::string::format("HTTP fetch failed: %d", static_cast<int>(code));
             return false;

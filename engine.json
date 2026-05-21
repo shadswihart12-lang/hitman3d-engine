@@ -97,6 +97,7 @@
         "Gems/VideoPlaybackFramework",
         "Gems/VirtualGamepad",
         "Gems/WhiteBox",
+        "Gems/Hitman3D/AssetHub",
         "Gems/Hitman3D/Director"
     ],
     "gem_names": [

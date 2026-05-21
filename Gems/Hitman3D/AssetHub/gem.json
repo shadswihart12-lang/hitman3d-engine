@@ -13,8 +13,7 @@
     "requirements": "",
     "documentation_url": "",
     "dependencies": [
-        "Atom",
-        "HttpRequestor"
+        "Atom"
     ],
     "version": "0.1.0",
     "compatible_engines": [

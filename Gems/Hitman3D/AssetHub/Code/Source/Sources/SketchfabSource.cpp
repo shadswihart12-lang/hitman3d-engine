@@ -13,8 +13,7 @@
 #include <AzCore/StringFunc/StringFunc.h>
 #include <AzCore/Settings/SettingsRegistry.h>
 
-#include <HttpRequestor/HttpRequestorBus.h>
-#include <HttpRequestor/HttpTypes.h>
+#include <Hitman3D/AssetHub/AssetHubHttpClient.h>
 
 namespace Hitman3D::AssetHub
 {
@@ -244,22 +243,19 @@ namespace Hitman3D::AssetHub
             m_inFlightRequests[myId] = url;
         }
 
-        // Fire async HTTP GET via O3DE's HttpRequestor Gem.
-        HttpRequestor::HttpRequestorRequestBus::Broadcast(
-            &HttpRequestor::HttpRequestorRequests::AddRequestWithHeaders,
+        AssetHubHttpClient::GetAsync(
             url,
-            Aws::Http::HttpMethod::HTTP_GET,
             headers,
             [this, myId, callback = AZStd::move(onDone)](
                 const AZStd::string& response,
-                Aws::Http::HttpResponseCode responseCode)
+                HttpResponseCode responseCode)
             {
                 {
                     AZStd::lock_guard<AZStd::mutex> lock(m_requestMutex);
                     m_inFlightRequests.erase(myId);
                 }
 
-                if (responseCode != Aws::Http::HttpResponseCode::OK)
+                if (responseCode != HttpResponseCode::Ok)
                 {
                     SearchResult err;
                     err.success = false;
@@ -308,16 +304,14 @@ namespace Hitman3D::AssetHub
             m_inFlightRequests[myId] = urlStep1;
         }
 
-        HttpRequestor::HttpRequestorRequestBus::Broadcast(
-            &HttpRequestor::HttpRequestorRequests::AddRequestWithHeaders,
+        AssetHubHttpClient::GetAsync(
             urlStep1,
-            Aws::Http::HttpMethod::HTTP_GET,
             headers,
             [this, myId, assetId, callback = AZStd::move(onDone)](
                 const AZStd::string& response,
-                Aws::Http::HttpResponseCode responseCode)
+                HttpResponseCode responseCode)
             {
-                if (responseCode != Aws::Http::HttpResponseCode::OK)
+                if (responseCode != HttpResponseCode::Ok)
                 {
                     DownloadResult err;
                     err.success = false;
