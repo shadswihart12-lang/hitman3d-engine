@@ -20,7 +20,5 @@
         "hitman3d==0.1.0-hitman3d",
         "o3de>=23.10"
     ],
-    "engine_api_dependencies": [
-        "framework==1.0"
-    ]
+    "engine_api_dependencies": []
 }
