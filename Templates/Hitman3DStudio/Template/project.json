@@ -1,0 +1,54 @@
+{
+    "project_name": "${Name}",
+    "version": "${Version}",
+    "project_id": "${ProjectId}",
+    "origin": "Jeffrsin Str33t Studios — Hitman 3d by jss",
+    "license": "Proprietary",
+    "display_name": "${Name}",
+    "summary": "Hitman 3d studio game project with Director and AssetHub enabled.",
+    "canonical_tags": [
+        "Project",
+        "Hitman3D"
+    ],
+    "user_tags": [
+        "${Name}",
+        "Hitman3D"
+    ],
+    "icon_path": "preview.png",
+    "engine": "hitman3d",
+    "external_subdirectories": [
+        "Gem"
+    ],
+    "gem_names": [
+        "${Name}",
+        "Atom",
+        "AudioSystem",
+        "Camera",
+        "CameraFramework",
+        "DebugDraw",
+        "DiffuseProbeGrid",
+        "EditorPythonBindings",
+        "EMotionFX",
+        "GameState",
+        "GradientSignal",
+        "ImGui",
+        "LandscapeCanvas",
+        "LmbrCentral",
+        "LyShine",
+        "Maestro",
+        "MiniAudio",
+        "PhysX5",
+        "PrefabBuilder",
+        "PrimitiveAssets",
+        "SceneProcessing",
+        "ScriptCanvas",
+        "ScriptEvents",
+        "StartingPointInput",
+        "Terrain",
+        "TextureAtlas",
+        "Vegetation",
+        "WhiteBox",
+        "Hitman3D_Director",
+        "Hitman3D_AssetHub"
+    ]
+}

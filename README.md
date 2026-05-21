@@ -8,6 +8,8 @@ Forked from [O3DE](https://github.com/o3de/o3de) under Apache 2.0 / MIT.
 - `hitman3d/main` — release tag line (sync with `development` periodically)
 - `hitman3d/dev` — **stale**; rebase onto `development` before use
 
+**New here?** See **[GETTING_STARTED.md](GETTING_STARTED.md)** — double-click `scripts\hitman3d\SETUP_STUDIO.bat` on Windows (no typing required).
+
 See [docs/HITMAN3D_STATUS.md](docs/HITMAN3D_STATUS.md) for audit notes and known gaps.
 
 ## Repo Layout

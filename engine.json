@@ -123,6 +123,7 @@
         "Templates/DefaultProject",
         "Templates/GemRepo",
         "Templates/GraphicsGem",
+        "Templates/Hitman3DStudio",
         "Templates/MinimalProject",
         "Templates/PrebuiltGem",
         "Templates/PythonToolGem",
