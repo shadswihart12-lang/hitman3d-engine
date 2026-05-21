@@ -26,7 +26,24 @@ if not exist "%ENGINE_ROOT%\scripts\o3de.bat" (
     exit /b 1
 )
 
-echo [1/4] Registering Hitman 3d engine...
+echo [0/5] Setting up Python for O3DE (first time only, may take several minutes)...
+if not exist "%ENGINE_ROOT%\python\get_python.bat" (
+    echo ERROR: Missing python\get_python.bat
+    pause
+    exit /b 1
+)
+call "%ENGINE_ROOT%\python\get_python.bat"
+if errorlevel 1 (
+    echo.
+    echo ERROR: Python setup failed.
+    echo - Install CMake: https://cmake.org/download/  OR use Visual Studio with C++ tools
+    echo - Then run this script again.
+    pause
+    exit /b 1
+)
+
+echo.
+echo [1/5] Registering Hitman 3d engine...
 call "%ENGINE_ROOT%\scripts\o3de.bat" register --this-engine
 if errorlevel 1 (
     echo ERROR: Engine registration failed.
@@ -35,7 +52,7 @@ if errorlevel 1 (
 )
 
 echo.
-echo [2/4] Creating studio project at:
+echo [2/5] Creating studio project at:
 echo        %PROJECT_PATH%
 if not exist "%PROJECTS_DIR%" mkdir "%PROJECTS_DIR%"
 
@@ -47,7 +64,7 @@ if errorlevel 1 (
 )
 
 echo.
-echo [3/4] Enabling Director and AssetHub gems...
+echo [3/5] Enabling Director and AssetHub gems...
 call "%ENGINE_ROOT%\scripts\o3de.bat" enable-gem -gn Hitman3D_Director -pp "%PROJECT_PATH%"
 call "%ENGINE_ROOT%\scripts\o3de.bat" enable-gem -gn Hitman3D_AssetHub -pp "%PROJECT_PATH%"
 
