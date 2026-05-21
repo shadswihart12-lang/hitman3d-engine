@@ -38,16 +38,16 @@ namespace Hitman3D::AssetHub
             int& outStatus,
             AZStd::string& outError)
         {
-            AZ::IO::FixedMaxPath tempDir;
-            if (!AZ::Utils::GetExecutableDirectory(tempDir.Native()))
+            const AZ::IO::FixedMaxPathString tempDir = AZ::Utils::GetExecutableDirectory();
+            if (tempDir.empty())
             {
                 outError = "Could not resolve temp directory for HTTP download";
                 outStatus = 0;
                 return false;
             }
 
-            AZ::IO::FixedMaxPath headerPath = tempDir / "assethub_curl_headers.txt";
-            AZ::IO::FixedMaxPath bodyPath = tempDir / "assethub_curl_body.bin";
+            AZ::IO::FixedMaxPath headerPath = AZ::IO::FixedMaxPath(tempDir) / "assethub_curl_headers.txt";
+            AZ::IO::FixedMaxPath bodyPath = AZ::IO::FixedMaxPath(tempDir) / "assethub_curl_body.bin";
 
             {
                 FILE* headerFile = fopen(headerPath.c_str(), "wb");
