@@ -1,0 +1,24 @@
+{
+    "gem_name": "Hitman3D_Director",
+    "display_name": "Hitman 3d — Director",
+    "license": "Proprietary — Jeffrsin Str33t Studios",
+    "license_url": "",
+    "origin": "Jeffrsin Str33t Studios",
+    "origin_url": "https://github.com/shadswihart12-lang/hitman3d-engine",
+    "type": "Code",
+    "summary": "AI-driven game development — natural language to engine actions. The brain of Hitman 3d by jss.",
+    "canonical_tags": ["Gem", "Editor", "AI", "Scripting"],
+    "user_tags": ["Hitman3D", "Director", "AI", "NaturalLanguage"],
+    "icon_path": "preview.png",
+    "requirements": "",
+    "documentation_url": "",
+    "dependencies": [],
+    "version": "0.1.0",
+    "compatible_engines": [
+        "hitman3d==0.1.0-hitman3d",
+        "o3de>=23.10"
+    ],
+    "engine_api_dependencies": [
+        "framework==1.0"
+    ]
+}

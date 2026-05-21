@@ -1,0 +1,17 @@
+set(FILES
+    Source/DirectorSystemComponent.cpp
+    Source/DirectorSystemComponent.h
+    Source/Intent/IntentParser.cpp
+    Source/Intent/IntentParser.h
+    Source/Actions/ActionBus.h
+    Source/Actions/SceneAction.cpp
+    Source/Actions/SceneAction.h
+    Source/Actions/EntityAction.cpp
+    Source/Actions/EntityAction.h
+    Source/Actions/ScriptAction.cpp
+    Source/Actions/ScriptAction.h
+    Source/Actions/TerrainAction.cpp
+    Source/Actions/TerrainAction.h
+    Include/Hitman3D/Director/DirectorBus.h
+    Include/Hitman3D/Director/DirectorTypes.h
+)
