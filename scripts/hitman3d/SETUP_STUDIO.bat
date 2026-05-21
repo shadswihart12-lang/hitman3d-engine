@@ -52,7 +52,7 @@ call "%ENGINE_ROOT%\scripts\o3de.bat" enable-gem -gn Hitman3D_Director -pp "%PRO
 call "%ENGINE_ROOT%\scripts\o3de.bat" enable-gem -gn Hitman3D_AssetHub -pp "%PROJECT_PATH%"
 
 echo.
-echo [4/4] Done!
+echo [4/5] Done!
 echo.
 echo  NEXT STEPS (easy):
 echo  --------------------------------------------
