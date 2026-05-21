@@ -23,6 +23,8 @@ _savebackup/
 *.swatches
 /imgui.ini
 .command_settings
+# Shipped project templates need this file (see Templates/*/Template/.command_settings)
+!Templates/**/.command_settings
 CrashDB/
 *.DotSettings.user
 imgui.ini
