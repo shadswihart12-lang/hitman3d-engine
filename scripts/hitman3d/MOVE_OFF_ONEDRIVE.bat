@@ -21,7 +21,7 @@ if not exist "%LAUNCHER%" (
     exit /b 1
 )
 
-powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0repair_shortcut.ps1" -LauncherPath "%LAUNCHER%" -EngineRoot "%ENGINE_ROOT%" -RemoveOneDriveShortcut
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0repair_shortcut.ps1" -LauncherPath "%LAUNCHER%" -EngineRoot "%ENGINE_ROOT%"
 
 echo.
 pause

@@ -1,7 +1,7 @@
 param(
     [Parameter(Mandatory = $true)][string]$LauncherPath,
     [Parameter(Mandatory = $true)][string]$EngineRoot,
-    [switch]$RemoveOneDriveShortcut = $true
+    [switch]$RemoveOneDriveShortcut = $false
 )
 
 $launcherPath = (Resolve-Path $LauncherPath).Path
@@ -20,13 +20,25 @@ $oneDriveDesktop = Join-Path $env:USERPROFILE 'OneDrive\Desktop'
 $oneDriveShortcut = Join-Path $oneDriveDesktop $shortcutName
 $localShortcut = Join-Path $localDesktop $shortcutName
 
+$iconPath = Join-Path $engineRoot 'Code\Editor\res\lyeditor_small.ico'
+if (-not (Test-Path $iconPath)) {
+    $iconPath = Join-Path $engineRoot 'Code\Editor\res\o3de_editor.ico'
+}
+if (-not (Test-Path $iconPath)) {
+    $iconPath = "$launcherPath,0"
+}
+
 function Set-StudioShortcut {
     param([string]$Path)
+    $dir = Split-Path $Path -Parent
+    if (-not (Test-Path $dir)) {
+        New-Item -ItemType Directory -Path $dir -Force | Out-Null
+    }
     $sc = $shell.CreateShortcut($Path)
     $sc.TargetPath = $launcherPath
     $sc.WorkingDirectory = $engineRoot
     $sc.Description = 'Hitman 3d by jss - Jeffrsin Str33t Studios'
-    $sc.IconLocation = "$launcherPath,0"
+    $sc.IconLocation = $iconPath
     $sc.Save()
 }
 
