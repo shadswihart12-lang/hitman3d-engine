@@ -504,12 +504,11 @@ namespace AZ::Metrics
             };
 
             // Add a default argument for the IEventLoggerFactory parameter in the BehaviorCont3ext
-            AZStd::array<AZ::BehaviorParameterOverrides, AZStd::function_traits<decltype(RecordEvent)>::arity>
-                recordEventOverrides;
+            constexpr size_t recordEventArity = 4; // number of parameters in RecordEvent
+            AZStd::array<AZ::BehaviorParameterOverrides, recordEventArity> recordEventOverrides;
             constexpr size_t eventLoggerFactoryArgIndex = 3;
             recordEventOverrides[eventLoggerFactoryArgIndex].m_defaultValue = behaviorContext.MakeDefaultValue(static_cast<IEventLoggerFactory*>(nullptr));
-            static_assert(AZStd::is_same_v<AZStd::function_traits<
-                decltype(RecordEvent)>::get_arg_t<eventLoggerFactoryArgIndex>, IEventLoggerFactory*>,
+            static_assert(eventLoggerFactoryArgIndex < recordEventArity,
                 "The `IEventLoggerFactory*` argument index must be updated for the RecordEvent function");
 
             behaviorContext.Method("RecordEvent", RecordEvent, recordEventOverrides)
