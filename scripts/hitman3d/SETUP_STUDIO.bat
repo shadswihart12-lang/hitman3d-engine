@@ -64,9 +64,10 @@ if errorlevel 1 (
 )
 
 echo.
-echo [3/5] Enabling Director and AssetHub gems...
-call "%ENGINE_ROOT%\scripts\o3de.bat" enable-gem -gn Hitman3D_Director -pp "%PROJECT_PATH%"
-call "%ENGINE_ROOT%\scripts\o3de.bat" enable-gem -gn Hitman3D_AssetHub -pp "%PROJECT_PATH%"
+echo [3/5] Registering project and enabling gems...
+call "%ENGINE_ROOT%\scripts\o3de.bat" register --project-path "%PROJECT_PATH%" -f
+call "%ENGINE_ROOT%\scripts\o3de.bat" enable-gem -gn Hitman3D_Director -pp "%PROJECT_PATH%" -f
+call "%ENGINE_ROOT%\scripts\o3de.bat" enable-gem -gn Hitman3D_AssetHub -pp "%PROJECT_PATH%" -f
 
 echo.
 echo [4/5] Done!
