@@ -34,17 +34,28 @@ Write-Host ""
 Write-Host "Launcher: $launcherPath" -ForegroundColor Cyan
 Write-Host ""
 
-# Create / update LOCAL desktop shortcut (primary)
-Set-StudioShortcut -Path $localShortcut
-Write-Host "Created/updated LOCAL desktop shortcut:" -ForegroundColor Green
-Write-Host "  $localShortcut"
+# Create on BOTH desktops first (Windows often redirects Desktop to OneDrive)
+$targets = @($localShortcut)
+if ((Test-Path $oneDriveDesktop) -and ($oneDriveDesktop -ne $localDesktop)) {
+    $targets += $oneDriveShortcut
+}
 
-# Remove OneDrive desktop copy so you only use one shortcut
-if ($RemoveOneDriveShortcut -and (Test-Path $oneDriveShortcut)) {
-    Remove-Item -LiteralPath $oneDriveShortcut -Force
-    Write-Host ""
-    Write-Host "Removed OneDrive shortcut (no longer used):" -ForegroundColor Yellow
-    Write-Host "  $oneDriveShortcut"
+foreach ($t in $targets) {
+    Set-StudioShortcut -Path $t
+    Write-Host "Created/updated shortcut:" -ForegroundColor Green
+    Write-Host "  $t"
+}
+
+# Only remove OneDrive copy when we are putting shortcut on local Desktop only
+if ($RemoveOneDriveShortcut -and (Test-Path $oneDriveShortcut) -and (Test-Path $localShortcut)) {
+    $localResolved = (Resolve-Path $localShortcut).Path
+    $odResolved = (Resolve-Path $oneDriveShortcut).Path
+    if ($localResolved -ne $odResolved) {
+        Remove-Item -LiteralPath $oneDriveShortcut -Force
+        Write-Host ""
+        Write-Host "Removed duplicate OneDrive shortcut:" -ForegroundColor Yellow
+        Write-Host "  $oneDriveShortcut"
+    }
 }
 
 # Remove duplicate Studio name on OneDrive if present
