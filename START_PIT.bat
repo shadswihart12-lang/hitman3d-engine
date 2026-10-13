@@ -1,21 +1,35 @@
 @echo off
 REM ═══════════════════════════════════════════════════════════════
-REM START_PIT.bat v2 — bootstrap bundled python, register engine,
-REM create + register the PIT PROTOCOL project, enable the gem.
-REM House pattern: double-click. Log: START_PIT.log
+REM START_PIT.bat v3 — cmake autodetect (VS-bundled or PATH),
+REM bootstrap python, register, create + register project, enable gem.
 REM ═══════════════════════════════════════════════════════════════
 setlocal EnableDelayedExpansion
 set ENGINE=C:\JSS\hitman3d-engine
 set PROJECT=C:\JSS\Projects\PitProtocol
 set LOG=%ENGINE%\START_PIT.log
-echo === START_PIT v2 %date% %time% === > "%LOG%"
+echo === START_PIT v3 %date% %time% === > "%LOG%"
 
-if not exist "%ENGINE%\python\python.cmd" (
-    echo [X] python.cmd not found - is %ENGINE% a full clone? >> "%LOG%"
+REM ── locate cmake ──
+set CMAKE_EXE=
+where cmake >nul 2>&1 && set CMAKE_EXE=cmake
+if not defined CMAKE_EXE (
+    for %%V in (2026 2022) do for %%E in (Community Professional Enterprise) do (
+        if not defined CMAKE_EXE (
+            if exist "C:\Program Files\Microsoft Visual Studio\%%V\%%E\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" (
+                set "CMAKE_EXE=C:\Program Files\Microsoft Visual Studio\%%V\%%E\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe"
+            )
+        )
+    )
+)
+if not defined CMAKE_EXE (
+    echo [X] CMake not found. Run: winget install --id Kitware.CMake -e   then rerun. >> "%LOG%"
     type "%LOG%" & pause & exit /b 1
 )
+echo Found cmake: !CMAKE_EXE! >> "%LOG%"
+set "LY_CMAKE_PATH=!CMAKE_EXE!"
+set "PATH=!PATH!;C:\Program Files\Microsoft Visual Studio\2026\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin;C:\Program Files\CMake\bin"
 
-echo [1/5] Bootstrapping bundled python (first run downloads ~40MB)... >> "%LOG%"
+echo [1/5] Bootstrapping bundled python... >> "%LOG%"
 call "%ENGINE%\python\get_python.bat" >> "%LOG%" 2>&1
 echo PY_BOOTSTRAP_EXIT=!errorlevel! >> "%LOG%"
 
