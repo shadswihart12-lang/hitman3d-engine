@@ -21,8 +21,10 @@ ly_add_target(
 )
 
 # The shared module loaded by the engine at runtime
+# (GEM_MODULE = correct per-platform linking option; a bare PAL variable
+#  is empty on linux-default and fails ly_add_target with 0 linking options)
 ly_add_target(
-    NAME ${gem_name} ${PAL_TRAIT_MONOLITHIC_GAME_SUPPORTED_DEFAULT_TYPE}
+    NAME ${gem_name} GEM_MODULE
     NAMESPACE Gem
     FILES_CMAKE
         assethub_shared_files.cmake
