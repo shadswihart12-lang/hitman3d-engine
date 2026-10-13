@@ -29,6 +29,11 @@ echo Found cmake: !CMAKE_EXE! >> "%LOG%"
 set "LY_CMAKE_PATH=!CMAKE_EXE!"
 set "PATH=!PATH!;C:\Program Files\Microsoft Visual Studio\2026\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin;C:\Program Files\CMake\bin"
 
+echo [0/5] Clearing python env poison + partial venv... >> "%LOG%"
+set PYTHONHOME=
+set PYTHONPATH=
+echo PYTHONHOME/PYTHONPATH cleared. >> "%LOG%"
+if exist "C:\Users\shads\.o3de\Python\venv\722b02a4" rmdir /s /q "C:\Users\shads\.o3de\Python\venv\722b02a4"
 echo [1/5] Bootstrapping bundled python... >> "%LOG%"
 call "%ENGINE%\python\get_python.bat" >> "%LOG%" 2>&1
 echo PY_BOOTSTRAP_EXIT=!errorlevel! >> "%LOG%"
