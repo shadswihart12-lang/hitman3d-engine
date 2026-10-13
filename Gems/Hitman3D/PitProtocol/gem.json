@@ -1,0 +1,22 @@
+{
+    "gem_name": "Hitman3D_PitProtocol",
+    "display_name": "Hitman 3d — Pit Protocol (The Pit, Phase A)",
+    "license": "Proprietary — Jeffrsin Str33t Studios",
+    "license_url": "",
+    "origin": "Jeffrsin Str33t Studios",
+    "origin_url": "https://github.com/shadswihart12-lang/hitman3d-engine",
+    "type": "Code",
+    "summary": "PIT PROTOCOL — The Pit's doctrine as a systems simulator: no-rounds bouts, limb state maps, desperation verbs, walk-out decisions, house simulation. The in-house engine's first game (Phase A: art-light, systems-truth).",
+    "canonical_tags": ["Gem", "Game"],
+    "user_tags": ["Hitman3D", "ThePit", "PitProtocol"],
+    "icon_path": "preview.png",
+    "requirements": "",
+    "documentation_url": "docs/PIT_PROTOCOL.md",
+    "dependencies": [],
+    "version": "0.1.0",
+    "compatible_engines": [
+        "hitman3d==0.1.0-hitman3d",
+        "o3de>=23.10"
+    ],
+    "engine_api_dependencies": []
+}

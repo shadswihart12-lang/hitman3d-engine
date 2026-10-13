@@ -98,7 +98,8 @@
         "Gems/VirtualGamepad",
         "Gems/WhiteBox",
         "Gems/Hitman3D/AssetHub",
-        "Gems/Hitman3D/Director"
+        "Gems/Hitman3D/Director",
+        "Gems/Hitman3D/PitProtocol"
     ],
     "gem_names": [
         "Atom_Bootstrap",
